@@ -22,7 +22,7 @@ public class FacultyController {
         return facultyService.getById(id);
     }
 
-    @GetMapping
+    @GetMapping(params = "color")
     public Collection<Faculty> getAll(@RequestParam(value = "color", required = false) String color) {
         return Optional.ofNullable(color)
                 .map(facultyService::getAllByColor)
@@ -42,6 +42,11 @@ public class FacultyController {
     @DeleteMapping("/{id}")
     public Optional<Faculty> deleteById(@PathVariable Long id) {
         return facultyService.deleteById(id);
+    }
+
+    @GetMapping(params = "nameOrColor")
+    public Collection<Faculty> getAllByNameOrColor(@RequestParam("nameOrColor") String nameOrColor) {
+        return facultyService.getAllByNameOrColor(nameOrColor);
     }
 
 }

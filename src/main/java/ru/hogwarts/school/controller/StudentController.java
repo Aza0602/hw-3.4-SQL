@@ -44,4 +44,9 @@ public class StudentController {
         return studentService.deleteById(id);
     }
 
+    @GetMapping
+    public Collection<Student> getAllByAgeBetween(@RequestParam("min") int minAge, @RequestParam("max") int maxAge) {
+        return studentService.getAllByAgeBetween(minAge, maxAge);
+    }
+
 }
