@@ -46,7 +46,7 @@ public class FacultyController {
         return facultyService.deleteById(id);
     }
 
-    @GetMapping(params = "nameOrColor")
+    @GetMapping(params =  "nameOrColor")
     public Collection<Faculty> getAllByNameOrColor(@RequestParam("nameOrColor") String nameOrColor) {
         return facultyService.getAllByNameOrColor(nameOrColor);
     }
